@@ -1,0 +1,87 @@
+//Create IExam
+INSERT INTO IExam (TeacherId, SubjectId, Class, FullMark, PassMark, ExamDate, StartTime, ExamDuration, ExamDescription)
+VALUES (@teacherId, @subjectId, @class, @fullMark, @passMark, @examDate, @startTime, @examDuration, @examDescription)
+|-------------------------------------------------------------------|#Completed|---------------------------------------------------------------------|
+
+|--------------------------------------------------------------------|Update IExam|-------------------------------------------------------------------|
+UPDATE IExam
+SET SubjectId = @subjectId, Class = @class, FullMark = @fullMark, PassMark = @passMark, ExamDate = @examDate, StartTime = @startTime, ExamDuration = @examDuration, 
+ExamDescription = @examDescription
+WHERE IExamId = @examId
+
+//Delete IExam
+DELETE FROM IExam
+WHERE IExamId = @examId
+
+//Get individual exam IExam
+SELECT * FROM IExam
+WHERE IExamId = @examId
+
+//Get list of exam
+SELECT IExamId, TeacherId, SubjectId, Class, FullMark, PassMark, ExamDate, StartTime, ExamDuration, ExamDescription
+FROM IExam
+
+
+//Obtained Marks
+SELECT SUM(CASE WHEN eq.CorrectAnswer = a.Answer THEN eq.IMark ELSE 0 END) AS ObtainedMarks
+FROM EQuestions eq
+INNER JOIN Answer a ON eq.EQuestionId = a.EQuestionId
+WHERE eq.IExamId = @IExamId AND a.StudentId = @StudentId
+
+
+//Add Question to an exam
+INSERT INTO EQuestions (IExamId, Question, IMark, OptionA, OptionB, OptionC, OptionD, CorrectAnswer)
+VALUES (@examId, @question, @iMark, @optionA, @optionB, @optionC, @optionD, @correctAnswer)
+
+//API 7: Retrieve a list of all questions for an exam
+SELECT EQuestionId, IExamId, Question, IMark, OptionA, OptionB, OptionC, OptionD, CorrectAnswer
+FROM EQuestions
+WHERE IExamId = @id
+
+
+//API 8: Retrieve a specific question by Class
+SELECT EQuestionId, IExamId, Question, IMark, OptionA, OptionB, OptionC, OptionD, CorrectAnswer
+FROM EQuestions
+WHERE EQuestionId = @questionId AND IExamId = @examId
+
+
+//API 9: Update an existing question
+UPDATE EQuestions
+SET Question = @question, IMark = @iMark, OptionA = @optionA, OptionB = @optionB, OptionC = @optionC, OptionD = @optionD, CorrectAnswer = @correctAnswer
+WHERE EQuestionId = @questionId AND IExamId = @examId
+
+
+
+To check the answer by the system and show the marks obtained by the system as well as the result of every respective student, and generate the progress graph for every student on the basis of the exam appeared and marks obtained, you can create a new table named Result with the following schema:
+
+sql
+Copy code
+CREATE TABLE Result(
+	ResultId INT PRIMARY KEY IDENTITY(1,1),
+	IExamId INT FOREIGN KEY REFERENCES IExam(IExamId) NOT NULL,
+	StudentId INT FOREIGN KEY REFERENCES Student(StudentId) NOT NULL,
+	MarkObtained INT NOT NULL,
+	Status VARCHAR(20) NOT NULL
+);
+The Result table will store the marks obtained by the student in the exam and the result status (e.g. Pass/Fail). The IExamId column will reference the IExam table to identify the exam for which the result is being stored, and the StudentId column will reference the Student table to identify the student for whom the result is being stored.
+
+To generate the progress graph for every student on the basis of the exam appeared and marks obtained, you can use SQL queries to aggregate and analyze the data stored in the Result table. You can calculate the average marks obtained by each student across all exams, and plot this data on a graph to show their progress over time. You can also calculate the overall pass/fail rate for each exam, and track how this changes over time as well.
+
+
+CreateAnswer: This API can be used to create a new record in the Answer table for a student's answer to a particular question during an exam. It will take inputs such as EQuestionId, StudentId, and Answer, and will insert a new row in the Answer table with these values.
+
+UpdateAnswer: This API can be used to update the answer given by a student for a particular question during an exam. It will take inputs such as AnswerId and NewAnswer, and will update the corresponding record in the Answer table with the new answer value.
+
+GetAnswer: This API can be used to retrieve the answer given by a student for a particular question during an exam. It will take inputs such as AnswerId or EQuestionId and StudentId, and will return the corresponding answer value from the Answer table.
+
+CheckAnswer: This API can be used to check if a student's answer for a particular question during an exam is correct or not. It will take inputs such as EQuestionId, StudentId, and Answer, and will compare the answer value with the correct answer for that question in the EQuestions table. It will then update the AnswerStatus column in the Answer table to indicate whether the answer is correct or not.
+
+GetStudentResult: This API can be used to retrieve the result of a particular student for a particular exam. It will take inputs such as IExamId and StudentId, and will return the corresponding mark obtained
+
+
+
+//View Answer
+SELECT eq.Question, eq.OptionA, eq.OptionB, eq.OptionC, eq.OptionD, eq.CorrectAnswer, a.Answer
+FROM EQuestions eq
+INNER JOIN Answer a ON eq.EQuestionId = a.EQuestionId
+WHERE eq.IExamId = @IExamId AND a.StudentId = @StudentId
