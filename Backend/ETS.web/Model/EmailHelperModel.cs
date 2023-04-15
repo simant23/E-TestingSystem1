@@ -2,8 +2,11 @@
 {
     public class EmailHelperModel
     {
+        public string? FromFullName { get; set; }
         public string? FromEmailAddress { get; set; }
+        public string? ToFullName { get; set; }
         public string? ToEmailAddress { get; set; }
+        public string? CCFullName { get; set; }
         public string? CCEmail { get; set; }
         public string? Message { get; set; }
         public string? SmtpPort { get; set; }

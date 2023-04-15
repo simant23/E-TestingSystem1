@@ -31,7 +31,7 @@ namespace ETS.web.Controllers
             response = dal.SRegistration(student, connection);
             if (!string.IsNullOrEmpty(student.EmailId))
             {
-                StaticHelper.SendEmailVerification(student.EmailId);
+                StaticHelper.SendEmailVerification(student.EmailId, string.IsNullOrEmpty(student.FullName) ? "" : student.FullName);
             }
             return Ok(response);
         }
@@ -47,7 +47,7 @@ namespace ETS.web.Controllers
             response = dal.TRegistration(teacher, connection);
             if (!string.IsNullOrEmpty(teacher.EmailId))
             {
-                StaticHelper.SendEmailVerification(teacher.EmailId);
+                StaticHelper.SendEmailVerification(teacher.EmailId, string.IsNullOrEmpty(teacher.FullName) ? "" : teacher.FullName);
             }
             return Ok(response);
         }
@@ -196,10 +196,9 @@ namespace ETS.web.Controllers
 
         [HttpPost]
         [Route("test")]
-        public IActionResult test(string email)
+        public IActionResult test(string email, string FullName)
         {
-
-            StaticHelper.SendEmailVerification(email);
+            StaticHelper.SendEmailVerification(email, FullName);
             return Ok("sucess");
         }
 

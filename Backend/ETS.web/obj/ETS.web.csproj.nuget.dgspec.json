@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\siman\\OneDrive\\Desktop\\fyp\\ETS-FYP\\Backend\\ETS.web\\ETS.web.csproj": {}
+    "E:\\Simant\\New\\E-TestingSystem1\\Backend\\ETS.web\\ETS.web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\siman\\OneDrive\\Desktop\\fyp\\ETS-FYP\\Backend\\ETS.web\\ETS.web.csproj": {
+    "E:\\Simant\\New\\E-TestingSystem1\\Backend\\ETS.web\\ETS.web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\siman\\OneDrive\\Desktop\\fyp\\ETS-FYP\\Backend\\ETS.web\\ETS.web.csproj",
+        "projectUniqueName": "E:\\Simant\\New\\E-TestingSystem1\\Backend\\ETS.web\\ETS.web.csproj",
         "projectName": "ETS.web",
-        "projectPath": "C:\\Users\\siman\\OneDrive\\Desktop\\fyp\\ETS-FYP\\Backend\\ETS.web\\ETS.web.csproj",
-        "packagesPath": "C:\\Users\\siman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\siman\\OneDrive\\Desktop\\fyp\\ETS-FYP\\Backend\\ETS.web\\obj\\",
+        "projectPath": "E:\\Simant\\New\\E-TestingSystem1\\Backend\\ETS.web\\ETS.web.csproj",
+        "packagesPath": "C:\\Users\\edap\\.nuget\\packages\\",
+        "outputPath": "E:\\Simant\\New\\E-TestingSystem1\\Backend\\ETS.web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\siman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\edap\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -49,6 +49,10 @@
               "target": "Package",
               "version": "[7.0.4, )"
             },
+            "NETCore.MailKit": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -77,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
