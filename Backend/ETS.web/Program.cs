@@ -1,4 +1,6 @@
 using ETS.web.DAL;
+using ETS.web.Helper;
+using ETS.web.Helper.JWT;
 using ETS.web.Interface;
 using ETSystem.Helper;
 using ETSystem.Interface;
@@ -26,10 +28,14 @@ builder.Services.AddTransient<IResultRepository, ResultRepository>();
 builder.Services.AddTransient<ITeacherDashRepoitory, TeacherDashRepository>();
 builder.Services.AddTransient<IAdminDashRepository, AdminDashRepository>();
 builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddTransient<IJWTService, JWTService>();
 builder.Services.AddCors();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.OperationFilter<APIHeaderFilter>();
+});
 var app = builder.Build();
 StaticHelper.InitConfig(builder.Configuration);
 
@@ -40,6 +46,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
+app.UseMiddleware<JWTMiddleware>();
 //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins(""));
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000"));
 app.UseAuthorization();

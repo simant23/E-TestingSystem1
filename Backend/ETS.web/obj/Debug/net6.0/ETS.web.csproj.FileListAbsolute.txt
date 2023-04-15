@@ -194,3 +194,8 @@ E:\Simant\New\E-TestingSystem1\Backend\ETS.web\obj\Debug\net6.0\refint\ETS.web.d
 E:\Simant\New\E-TestingSystem1\Backend\ETS.web\obj\Debug\net6.0\ETS.web.pdb
 E:\Simant\New\E-TestingSystem1\Backend\ETS.web\obj\Debug\net6.0\ETS.web.genruntimeconfig.cache
 E:\Simant\New\E-TestingSystem1\Backend\ETS.web\obj\Debug\net6.0\ref\ETS.web.dll
+E:\Simant\New\E-TestingSystem1\Backend\ETS.web\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+E:\Simant\New\E-TestingSystem1\Backend\ETS.web\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Simant\New\E-TestingSystem1\Backend\ETS.web\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+E:\Simant\New\E-TestingSystem1\Backend\ETS.web\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+E:\Simant\New\E-TestingSystem1\Backend\ETS.web\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

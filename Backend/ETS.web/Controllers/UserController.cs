@@ -1,4 +1,5 @@
-﻿using ETSystem.Interface;
+﻿using ETS.web.Helper.Attributes;
+using ETSystem.Interface;
 using ETSystem.Model.Notice;
 using ETSystem.Model.User;
 using ETSystem.Repository;
@@ -10,6 +11,7 @@ namespace ETS.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [JWTTokenAttribute]
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
@@ -20,6 +22,7 @@ namespace ETS.web.Controllers
             _configuration = configuration;
         }
         [HttpGet]
+        [Route("GetAll")]
         public ActionResult<List<User>> GetAll()
         {
             SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("Con").ToString());

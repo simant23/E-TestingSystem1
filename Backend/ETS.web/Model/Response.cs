@@ -16,9 +16,5 @@ namespace ETSystem.Model
 
         public TeacherDetails? teacherDetails { get; set; }
         public AdminDetails? adminDetails { get; set; }
-
-
-
-
     }
 }
