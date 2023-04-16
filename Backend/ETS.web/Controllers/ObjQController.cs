@@ -1,4 +1,5 @@
-﻿using ETS.web.Model.Question;
+﻿using ETS.web.Helper.Attributes;
+using ETS.web.Model.Question;
 using ETSystem.Model.Notice;
 using ETSystem.Model.Question;
 using ETSystem.Model.SampleQuestion;
@@ -11,6 +12,7 @@ namespace ETS.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [JWTTokenAttribute]
     public class ObjQController : ControllerBase
     {
         private readonly IObjQRepository _objRepository;

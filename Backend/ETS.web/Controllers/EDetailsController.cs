@@ -1,4 +1,5 @@
 ﻿using ETS.web.DAL;
+using ETS.web.Helper.Attributes;
 using ETS.web.Interface;
 using ETS.web.Model.EAnswer;
 using ETS.web.Model.EDetails;
@@ -12,6 +13,7 @@ namespace ETS.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [JWTTokenAttribute]
     public class EDetailsController : ControllerBase
     {
         private readonly IEDetailsRepository _iEDetailsRepository;

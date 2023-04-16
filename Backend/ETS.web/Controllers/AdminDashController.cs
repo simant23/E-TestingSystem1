@@ -1,4 +1,5 @@
 ﻿using ETS.web.DAL;
+using ETS.web.Helper.Attributes;
 using ETS.web.Interface;
 using ETS.web.Model.Dashboard;
 using ETSystem.Model;
@@ -10,6 +11,7 @@ namespace ETS.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [JWTTokenAttribute]
     public class AdminDashController : ControllerBase
     {
         private readonly IAdminDashRepository _adminDashRepository;

@@ -1,4 +1,5 @@
-﻿using ETSystem.Model.Notice;
+﻿using ETS.web.Helper.Attributes;
+using ETSystem.Model.Notice;
 using ETSystem.Model.QuestionPaper;
 using ETSystem.Repository;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +10,7 @@ namespace ETS.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [JWTTokenAttribute]
     public class SubjectController : ControllerBase
     {
         private readonly ISubjectRepository _subjectRepository;

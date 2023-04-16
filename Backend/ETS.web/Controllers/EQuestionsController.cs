@@ -1,4 +1,5 @@
-﻿using ETS.web.Interface;
+﻿using ETS.web.Helper.Attributes;
+using ETS.web.Interface;
 using ETS.web.Model.EQuestions;
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
@@ -7,6 +8,7 @@ namespace ETS.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [JWTTokenAttribute]
     public class EQuestionsController : ControllerBase
     {
         private readonly IEQuestionsRepository _eQuestionsRepository;

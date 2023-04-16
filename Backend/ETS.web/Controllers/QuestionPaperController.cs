@@ -1,4 +1,5 @@
-﻿using ETSystem.Model.Notice;
+﻿using ETS.web.Helper.Attributes;
+using ETSystem.Model.Notice;
 using ETSystem.Model.QuestionPaper;
 using ETSystem.Model.SampleQuestion;
 using ETSystem.Repository;
@@ -11,6 +12,7 @@ namespace ETS.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [JWTTokenAttribute]
     public class QuestionPaperController : ControllerBase
     {
         private readonly IQuestionPaperRepository _questionPaperRepository;

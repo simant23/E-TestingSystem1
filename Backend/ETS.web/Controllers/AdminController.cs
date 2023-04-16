@@ -1,4 +1,5 @@
-﻿using ETSystem.Model.User;
+﻿using ETS.web.Helper.Attributes;
+using ETSystem.Model.User;
 using ETSystem.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
@@ -7,6 +8,7 @@ namespace ETS.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [JWTTokenAttribute]
     public class AdminController : ControllerBase
     {
         private readonly IAdminRepository _adminRepository;

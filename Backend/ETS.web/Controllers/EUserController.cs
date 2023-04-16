@@ -1,4 +1,5 @@
-﻿using ETSystem.Model.Notice;
+﻿using ETS.web.Helper.Attributes;
+using ETSystem.Model.Notice;
 using ETSystem.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ namespace ETS.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [JWTTokenAttribute]
     public class EUserController : ControllerBase
     {
         private readonly IEUserRepository _eUserRepository;

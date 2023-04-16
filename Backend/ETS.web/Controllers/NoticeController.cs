@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
+using ETS.web.Helper.Attributes;
 using ETSystem.Model.Notice;
 using ETSystem.Repository;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ namespace ETS.web.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[Action]")]
+    [JWTTokenAttribute]
     public class NoticesController : ControllerBase
     {
         private readonly INoticeRepository _noticeRepository;

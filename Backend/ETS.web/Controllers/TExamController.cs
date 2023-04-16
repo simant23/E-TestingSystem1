@@ -1,4 +1,5 @@
 ﻿using ETS.web.DAL;
+using ETS.web.Helper.Attributes;
 using ETS.web.Model.TExam;
 using ETSystem.Interface;
 using ETSystem.Model.Message;
@@ -13,6 +14,7 @@ namespace ETS.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [JWTTokenAttribute]
     public class TExamController : ControllerBase
     {
         private readonly ITExamRepository _examRepository;

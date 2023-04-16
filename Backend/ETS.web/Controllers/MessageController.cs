@@ -1,4 +1,5 @@
-﻿using ETSystem.Model.Message;
+﻿using ETS.web.Helper.Attributes;
+using ETSystem.Model.Message;
 using ETSystem.Model.Notice;
 using ETSystem.Repository;
 using Microsoft.AspNetCore.Http;
@@ -10,6 +11,7 @@ namespace ETS.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [JWTTokenAttribute]
     public class MessageController : ControllerBase
     {
         private readonly IMessageRepository _msgRepository;

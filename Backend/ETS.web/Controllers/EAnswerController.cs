@@ -1,4 +1,5 @@
-﻿using ETS.web.Interface;
+﻿using ETS.web.Helper.Attributes;
+using ETS.web.Interface;
 using ETS.web.Model.EAnswer;
 using ETSystem.Model.Notice;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ namespace ETS.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [JWTTokenAttribute]
     public class EAnswerController : ControllerBase
     {
         private readonly IEAnswerRepository _eAnswerRepository;
